@@ -12,24 +12,24 @@ const Navbar = () => {
         </div>
  
         <div className="hidden md:flex space-x-8">
-          <Link to="/" className="hover:text-gray-300">
+          <button className="hover:text-gray-500 transition-all duration-300">
             Home
-          </Link>
-          <Link to="/about" className="hover:text-gray-300">
+          </button>
+          <button  className="hover:text-gray-500 transition-all duration-300">
             About
-          </Link>
-          <Link to="/services" className="hover:text-gray-300">
+          </button>
+          <button  className="hover:text-gray-500 transition-all duration-300">
             Services
-          </Link>
-          <Link to="/contact" className="hover:text-gray-300">
+          </button>
+          <button  className="hover:text-gray-500 transition-all duration-300">
             Contact
-          </Link>
+          </button>
         </div>
        <div className='flex items-center gap-4'>
-        <span>Cart(0)</span>
-        <div className='flex items-center gap-4'>
+       
+        <div className='flex items-center gap-4 '>
             <span>Book Appointment</span>
-            <div className=' h-8 w-8 bg-black rounded-full text-white flex items-center justify-center text-xl cursor-pointer'>
+            <div className='hover:scale-125 transition-all duration-300 h-8 w-8 bg-black rounded-full text-white flex items-center justify-center text-xl cursor-pointer'>
                 <div><GoArrowUpRight />
                 </div>
             </div>
