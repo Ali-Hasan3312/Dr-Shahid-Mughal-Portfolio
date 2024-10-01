@@ -1,10 +1,10 @@
-import { useState } from "react"
+import { forwardRef, useState } from "react"
 import { GoArrowUpRight } from "react-icons/go"
-
-const OurTeam = () => {
+interface ContactSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+const OurTeam = forwardRef<HTMLDivElement, ContactSectionProps>((_, ref) => {
     const [isHover, setIsHover] = useState(false)
   return (
-    <div className=" mt-8">
+    <div ref={ref} className=" mt-8">
          <div className=" w-[90%] mx-auto flex flex-col gap-2">
            <h3 className=" text-lg uppercase text-gray-500 font-normal">who are we</h3>
             <h1 className=" text-5xl font-medium uppercase">our Team</h1>
@@ -31,6 +31,6 @@ const OurTeam = () => {
            </div>
     </div>
   )
-}
+})
 
 export default OurTeam

@@ -1,12 +1,13 @@
-import { useState } from "react"
+import { forwardRef, useState } from "react"
 import { GoArrowUpRight } from "react-icons/go"
 import clinic1 from "../assets/images/clinic/clinic1.png"
 import clinic2 from "../assets/images/clinic/clinic2.png"
-const OurClinic = () => {
+interface ContactSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+const OurClinic = forwardRef<HTMLDivElement, ContactSectionProps>((_, ref) => {
     const [isHover, setIsHover] = useState(false)
 
   return (
-    <div className=" mt-8">
+    <div ref={ref} className=" mt-8">
          <div className=" w-[90%] mx-auto flex flex-col gap-2">
            <h3 className=" text-lg uppercase text-gray-500 font-normal">where</h3>
             <h1 className=" text-5xl font-medium uppercase">our clinic</h1>
@@ -27,6 +28,6 @@ const OurClinic = () => {
            </div>
     </div>
   )
-}
+})
 
 export default OurClinic

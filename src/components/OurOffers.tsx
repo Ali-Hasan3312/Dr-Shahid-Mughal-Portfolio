@@ -1,10 +1,11 @@
-import { useState } from "react"
+import { forwardRef, useState } from "react"
 import { GoArrowUpRight } from "react-icons/go"
 import offerImage from "../assets/images/Offers/offerImage.png"
-const OurOffers = () => {
+interface ContactSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+const OurOffers = forwardRef<HTMLDivElement, ContactSectionProps>((_, ref) => {
    const [isHover, setIsHover] = useState(false)
   return (
-    <div className=" h-auto w-[95%] mx-auto mt-8">
+    <div ref={ref} className=" h-auto w-[95%] mx-auto mt-8">
         <div className="flex gap-4">
         <div className=" h-[290px] w-[800px] flex items-center">
            <div className=" w-[90%] mx-auto flex flex-col gap-2">
@@ -68,6 +69,6 @@ const OurOffers = () => {
        
     </div>
   )
-}
+})
 
 export default OurOffers

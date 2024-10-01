@@ -3,10 +3,11 @@ import { Link } from "react-router-dom"
 import FirstArticle from "./FirstArticle"
 import SecondArticle from "./SecondArticle"
 import ThirdArticle from "./ThirdArticle"
-
-const Insights = () => {
+import { forwardRef } from "react"
+interface ContactSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+const Insights = forwardRef<HTMLDivElement, ContactSectionProps>((_, ref) => {
   return (
-    <div className=" mt-8">
+    <div ref={ref} className=" mt-8">
         <div className=" w-[90%] mx-auto flex flex-col gap-2">
            <h3 className=" text-lg uppercase text-gray-500 font-normal">News over news</h3>
            <div className="flex items-center justify-between">
@@ -24,6 +25,6 @@ const Insights = () => {
            </div>
     </div>
   )
-}
+})
 
 export default Insights
