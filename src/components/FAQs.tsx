@@ -62,7 +62,7 @@ const FAQ = () => {
           <div key={index} className="border-b border-gray-300 mb-4">
             <button
               onClick={() => toggleDropdown(index)}
-              className="w-full flex justify-between items-center py-4 text-left text-lg font-semibold focus:outline-none"
+              className="w-full flex justify-between items-center py-4 text-left text-lg focus:outline-none"
             >
               <span>{faq.question}</span>
               <span>

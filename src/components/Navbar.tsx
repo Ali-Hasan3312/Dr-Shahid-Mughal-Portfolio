@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import { GoArrowUpRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FadeUp } from '../utils/Animation';
 interface NavbarProps {
   onScrollToServices: () => void;
   onScrollToOurClinic: () => void;
   onScrollToOurTeam: () => void;
   onScrollToInsights: () => void;
   onScrollToBookAppointment: () => void;
+  onScrollToAboutme: () => void;
 }
 const Navbar = (
   {
@@ -14,7 +17,8 @@ const Navbar = (
     onScrollToOurClinic,
     onScrollToOurTeam,
     onScrollToInsights,
-    onScrollToBookAppointment
+    onScrollToBookAppointment,
+    
   }: NavbarProps
 ) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,18 +39,20 @@ const Navbar = (
           <button onClick={onScrollToOurClinic}  className="hover:text-gray-500 transition-all duration-300">
             Our Clinic
           </button>
-          <button onClick={onScrollToOurTeam}  className="hover:text-gray-500 transition-all duration-300">
-            Our Team
-          </button>
+         
           <button onClick={onScrollToInsights}  className="hover:text-gray-500 transition-all duration-300">
             Insights
           </button>
+          <button onClick={onScrollToOurTeam}  className="hover:text-gray-500 transition-all duration-300">
+            About Me
+          </button>
+        
         
         
         </div>
        <div className='flex items-center gap-4'>
        
-        <div onClick={onScrollToBookAppointment} className='flex items-center gap-4 cursor-pointer '>
+        <div onClick={onScrollToBookAppointment} className='flex items-center gap-4 opacity-0 cursor-pointer md:opacity-100'>
             <span>Book Appointment</span>
             <div className='hover:scale-125 transition-all duration-300 h-8 w-8 bg-black rounded-full text-white flex items-center justify-center text-xl cursor-pointer'>
                 <div><GoArrowUpRight />
@@ -58,7 +64,7 @@ const Navbar = (
         <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white focus:outline-none"
+            className="text-gray-800 focus:outline-none"
           >
             {isOpen ? (
               <svg
@@ -97,20 +103,41 @@ const Navbar = (
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-black text-white space-y-2 px-4 py-2">
-          <Link to="/" className="block hover:text-gray-300">
+        <motion.div
+        initial="hidden"
+        whileInView={"visible"}
+        variants={FadeUp(0.2)}
+        className="md:hidden bg-slate-700 text-white space-y-2 px-4 py-8">
+         <div className='flex flex-col gap-2 px-4'>
+         <button  className=" text-left hover:text-gray-300">
             Home
-          </Link>
-          <Link to="/about" className="block hover:text-gray-300">
-            About
-          </Link>
-          <Link to="/services" className="block hover:text-gray-300">
+          </button>
+          <div className=' border-b border-gray-400 mt-2'></div>
+         </div>
+         <div className='flex flex-col gap-2 px-4'>
+         <button onClick={onScrollToServices} className="text-left hover:text-gray-300">
             Services
-          </Link>
-          <Link to="/contact" className="block hover:text-gray-300">
-            Contact
-          </Link>
-        </div>
+          </button>
+          <div className=' border-b border-gray-400 mt-2'></div>
+         </div>
+         <div className='flex flex-col gap-2 px-4'>
+         <button onClick={onScrollToOurClinic} className="text-left hover:text-gray-300">
+            Our Clinic
+          </button>
+          <div className=' border-b border-gray-400 mt-2'></div>
+         </div>
+         <div className='flex flex-col gap-2 px-4'>
+         <button onClick={onScrollToInsights} className="text-left hover:text-gray-300">
+            Insights
+          </button>
+          <div className=' border-b border-gray-400 mt-2'></div>
+         </div>
+         <div className='flex flex-col gap-2 px-4'>
+         <button onClick={onScrollToOurTeam} className="text-left hover:text-gray-300">
+            About Me
+          </button>
+         </div>
+        </motion.div>
       )}
     </nav>
   );

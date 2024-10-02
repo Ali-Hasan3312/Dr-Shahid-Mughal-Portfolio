@@ -1,5 +1,6 @@
 import { Suspense, lazy, useRef } from "react";
 import Loader from "../components/Loader";
+import About from "../components/About";
 
 const Appointment = lazy(() => import("../components/Appointment"));
 const FAQ = lazy(() => import("../components/FAQs"));
@@ -18,6 +19,7 @@ const Home = () => {
   const OurTeamRef = useRef<HTMLDivElement>(null);
   const InsightsRef = useRef<HTMLDivElement>(null);
   const AppointmentRef = useRef<HTMLDivElement>(null);
+  const AboutmeRef = useRef<HTMLDivElement>(null);
   const handleScrollToOffersRef = ()=>{
     if (OurOffersRef.current) {
       OurOffersRef.current.scrollIntoView({ behavior: 'smooth' });
@@ -43,20 +45,27 @@ const Home = () => {
       AppointmentRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }
+  const handleScrollToAboutmeRef = ()=>{
+    if (AboutmeRef.current) {
+      AboutmeRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
   return (
     <Suspense fallback={<Loader />}>
-      <div>
+      <div className=" overflow-x-hidden">
         <Navbar
          onScrollToServices={handleScrollToOffersRef}
           onScrollToOurClinic={handleScrollToClinicRef}
            onScrollToOurTeam={handleScrollToTeamRef}
             onScrollToInsights={handleScrollToInsightsRef}
              onScrollToBookAppointment={handleScrollToAppointmentRef}
+             onScrollToAboutme={handleScrollToAboutmeRef}
         />
         <HeroSection />
         <OurOffers ref={OurOffersRef} />
         <OurClinic ref={OurClinicRef} />
         <OurTeam ref={OurTeamRef} />
+        <About ref={AboutmeRef} />
         <Insights ref={InsightsRef} />
         <FAQ />
         <Appointment ref={AppointmentRef} />
