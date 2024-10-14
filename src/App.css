@@ -7,6 +7,9 @@ html, body{
 }
 /* HTML: <div class="loader"></div> */
 /* HTML: <div class="loader"></div> */
+.heroText{
+  font-family: "Playfair Display", serif;
+}
 .loader {
     width: 50px;
     aspect-ratio: 1;
@@ -31,3 +34,6 @@ html, body{
     50%   {transform:scaleY(-1) rotate(0deg)}
     100%  {transform:scaleY(-1) rotate(-135deg)}
   }
+.playfair{
+  font-family: "Playfair Display", serif;
+}

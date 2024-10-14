@@ -52,23 +52,24 @@ const FAQ = () => {
         "The frequency of checkups depends on your risk factors and overall health. Generally, it is recommended to have an annual checkup if you're at risk, or as directed by your cardiologist.",
     },
   ];
-
   return (
-    <div className='w-[90%] mx-auto mt-8'>
-      <span className=' text-xl text-gray-600'>FAQ</span>
-      <h2 className="text-[60px] font-medium mb-6 mt-4">GOT ANY QUESTIONS?</h2>
+    <div className='w-[95%] mx-auto mt-8'>
+     <div className=' px-4'>
+     <span className=' text-xl text-gray-600'>FAQ</span>
+     <h2 className="md:text-[60px] text-5xl leading-tight font-medium mb-6 mt-4">GOT ANY QUESTIONS?</h2>
+     </div>
       <div className=" w-full bg-gray-200 rounded-xl px-12 py-4 mt-10">
         {faqs.map((faq, index) => (
           <div key={index} className="border-b border-gray-300 mb-4">
             <button
               onClick={() => toggleDropdown(index)}
-              className="w-full flex justify-between items-center py-4 text-left text-lg focus:outline-none"
+              className="w-full flex justify-between items-center py-4 text-left md:text-lg text-base focus:outline-none"
             >
               <span>{faq.question}</span>
               <span>
                 {activeIndex === index ? (
                   <svg
-                    className="w-6 h-6"
+                    className="md:w-6 md:h-6 w-4 h-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -83,7 +84,7 @@ const FAQ = () => {
                   </svg>
                 ) : (
                   <svg
-                    className="w-6 h-6"
+                    className="md:w-6 md:h-6 w-4 h-4"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -102,7 +103,7 @@ const FAQ = () => {
             {activeIndex === index && (
               <motion.div
                 
-                className="py-4 text-gray-600"
+                className="py-4 text-gray-600 text-base md:text-lg"
               >
                 <p>{faq.answer}</p>
               </motion.div>

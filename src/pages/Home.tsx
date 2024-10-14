@@ -1,6 +1,7 @@
 import { Suspense, lazy, useRef } from "react";
 import Loader from "../components/Loader";
 import About from "../components/About";
+import GotoTopButton from "../components/GoToTopButton";
 
 const Appointment = lazy(() => import("../components/Appointment"));
 const FAQ = lazy(() => import("../components/FAQs"));
@@ -12,7 +13,6 @@ const Navbar = lazy(() => import("../components/Navbar"));
 const OurClinic = lazy(() => import("../components/OurClinic"));
 const OurOffers = lazy(() => import("../components/OurOffers"));
 const OurTeam = lazy(() => import("../components/OurTeam"));
-
 const Home = () => {
   const OurOffersRef = useRef<HTMLDivElement>(null);
   const OurClinicRef = useRef<HTMLDivElement>(null);
@@ -61,11 +61,12 @@ const Home = () => {
              onScrollToBookAppointment={handleScrollToAppointmentRef}
              onScrollToAboutme={handleScrollToAboutmeRef}
         />
-        <HeroSection />
-        <OurOffers ref={OurOffersRef} />
-        <OurClinic ref={OurClinicRef} />
-        <OurTeam ref={OurTeamRef} />
+        <GotoTopButton />
+        <HeroSection onScrollToBookAppointment={handleScrollToAppointmentRef} />
         <About ref={AboutmeRef} />
+        <OurOffers ref={OurOffersRef} />
+        <OurClinic ref={OurClinicRef} onScrollToBookAppointment={handleScrollToAppointmentRef}  />
+        <OurTeam ref={OurTeamRef} />
         <Insights ref={InsightsRef} />
         <FAQ />
         <Appointment ref={AppointmentRef} />
