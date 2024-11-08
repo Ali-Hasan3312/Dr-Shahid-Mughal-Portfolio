@@ -6,8 +6,6 @@ import FirstArticle from './components/FirstArticle'
 import HeartSigns from './components/HeartSigns'
 import HeartScore from './components/HeartScore'
 function App() {
- 
-
   return (
     <Router>
       <Routes>
